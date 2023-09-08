@@ -1,0 +1,648 @@
+@font-face {
+  font-family: "Font Awesome 6 Brands-Regular-400";
+  src: url(./fontawesome-free-6.4.2-desktop/otfs/Font\ Awesome\ 6\ Brands-Regular-400.otf);
+  font-weight: 900;
+}
+@font-face {
+  font-family: "Font Awesome 6 Free-Regular-400";
+  src: url(./fontawesome-free-6.4.2-desktop/otfs/Font\ Awesome\ 6\ Free-Regular-400.otf);
+  font-weight: 900;
+}
+*,
+::before,
+::after {
+  box-sizing: border-box;
+}
+
+html {
+  color-scheme: light;
+}
+
+:root {
+  /* colors */
+  --primary-blue: #238fce;
+  --secondary-blue: color-mix(in oklab, var(--primary-blue), black 35%);
+  --tertiary-blue: color-mix(in oklab, var(--primary-blue), black);
+  --primary-green: #0b9444;
+  --secondary-green: color-mix(in oklab, var(--primary-green), black 35%);
+  --tertiary-green: color-mix(in oklab, var(--primary-green), black);
+  --main-white: #ddf3ff;
+  --secondary-white: color-mix(in oklab, var(--main-white), white 85%);
+  --shadow-color: #ccc;
+  --thick-shadow-color: var(--shadow-color);
+  /* sizes */
+  --header-padding: 0.75em;
+  --header-height: 8em;
+  --svg-width: 350px;
+  --icons-gap: 0.5em;
+  --font-family: "Cascadia code", "Open Sans", Cantarell, "Helvetica Neue",
+    sans-serif;
+}
+
+body {
+  font-family: var(--font-family);
+  margin: 0;
+  height: 100dvh;
+}
+
+svg {
+  width: var(--svg-width);
+}
+svg > g {
+  fill: var(--secondary-blue);
+}
+
+/* Header */
+.header {
+  --_background: color-mix(in oklab, #1078bd, #fff 60%);
+  height: var(--header-height);
+  position: sticky;
+  background: linear-gradient(var(--_background), transparent);
+  z-index: 1;
+}
+.header > .logo {
+  background: var(--primary-blue);
+}
+.header > .logo > img {
+  width: 15rem;
+  position: absolute;
+  margin-block: auto;
+  margin-left: var(--header-padding);
+  inset: 0;
+}
+.header > .language > * > #lang {
+  position: absolute;
+  right: var(--header-padding);
+  top: 50%;
+  transform: translateY(-50%);
+  text-align: center;
+  height: 1.5em;
+  font-weight: 600;
+  font-family: inherit;
+  font-size: large;
+  color: var(--secondary-green);
+  outline: none;
+  border: none;
+}
+.header > .language > * > #lang:is(:active, :focus-within, :focus) {
+  outline: auto;
+}
+
+/* Main */
+.main {
+  position: relative;
+  height: calc(100% - var(--header-height));
+  width: 100%;
+  background-color: var(--secondary-white);
+}
+.main > .pictures {
+  width: min-content;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px solid var(--secondary-green);
+  background: var(--primary-blue);
+}
+.main > .pictures > figcaption {
+  background-color: var(--main-white);
+}
+.main > .pictures > figcaption > h2 {
+  width: 100%;
+  font-weight: 900;
+  font-size: xx-large;
+  text-align: center;
+  color: var(--tertiary-green);
+  margin-block: calc(var(--header-padding) / 2);
+}
+.main > .pictures > .icons {
+  margin-block-start: var(--header-padding);
+  padding: var(--header-padding) calc(var(--header-padding) / 2);
+  background: var(--main-white);
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: 1fr 1fr;
+  gap: var(--icons-gap);
+  row-gap: calc(var(--icons-gap) * 2);
+}
+.main > .pictures > .icons > span {
+  border: 2px solid var(--tertiary-blue);
+  text-align: center;
+}
+.main > .pictures > .icons > span:last-of-type {
+  grid-column: span 3;
+}
+.main > .pictures > .icons > span > a {
+  text-decoration: none;
+  color: initial;
+  transition: color 0.25s;
+}
+.main > .pictures > .icons > span:is(:hover, :focus-within, :focus) > a {
+  color: var(--primary-blue);
+}
+.main > .func {
+  text-transform: capitalize;
+  width: 12.5rem;
+  height: 3rem;
+  display: inline-block;
+  text-align: center;
+  border: 1px solid var(--tertiary-blue);
+  position: absolute;
+  font-weight: 700;
+  font-size: large;
+}
+.main > .func:is(:hover, :focus-within, :focus, :active) {
+  background: var(--primary-blue);
+  color: var(--secondary-white);
+}
+.main > .func:nth-of-type(1) {
+  top: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.main > .func:nth-of-type(2) {
+  top: 20%;
+  left: 25%;
+  transform: translate(-50%, -50%);
+}
+.main > .func:nth-of-type(3) {
+  top: 40%;
+  left: 25%;
+  transform: translate(-50%, -50%);
+}
+.main > .func:nth-of-type(4) {
+  top: 60%;
+  left: 25%;
+  transform: translate(-50%, -50%);
+}
+.main > .func:nth-of-type(5) {
+  top: 80%;
+  left: 25%;
+  transform: translate(-50%, -50%);
+}
+.main > .func:nth-of-type(6) {
+  bottom: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.main > .func:nth-of-type(7) {
+  top: 80%;
+  left: 75%;
+  transform: translate(-50%, -50%);
+}
+.main > .func:nth-of-type(8) {
+  top: 60%;
+  left: 75%;
+  transform: translate(-50%, -50%);
+}
+.main > .func:nth-of-type(9) {
+  top: 40%;
+  left: 75%;
+  transform: translate(-50%, -50%);
+}
+.main > .func:nth-of-type(10) {
+  top: 20%;
+  left: 75%;
+  transform: translate(-50%, -50%);
+}
+.main > .main-content {
+  display: flex;
+  position: relative;
+  display: flex;
+  /* sidebars */
+}
+.main > .main-content > .left-sidebar {
+  --_margin-size: 1.6rem;
+  --_large-font-size: 1.6rem;
+  width: 15%;
+  height: 80%;
+  position: relative;
+  margin-left: var(--_margin-size);
+  display: flex;
+  flex-direction: column;
+  row-gap: 2%;
+}
+.main > .main-content > .left-sidebar::before {
+  content: attr(sidebar-content);
+  text-transform: uppercase;
+  position: absolute;
+  background: var(--secondary-white);
+  width: var(--_margin-size);
+  height: 100%;
+  font-weight: 400;
+  font-size: calc(var(--_large-font-size) * 0.75);
+  writing-mode: vertical-rl;
+  text-orientation: sideways;
+  left: calc(var(--_margin-size) * -1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.main > .main-content > .left-sidebar > .first {
+  height: 68%;
+  width: 100%;
+  padding-top: var(--header-padding);
+  display: grid;
+  grid-auto-rows: max-content;
+  row-gap: var(--header-padding);
+  background: var(--main-white);
+}
+.main > .main-content > .left-sidebar > .second {
+  width: 100%;
+  padding-top: var(--header-padding);
+  display: grid;
+  grid-auto-rows: max-content;
+  row-gap: var(--header-padding);
+  background: var(--main-white);
+  height: 30%;
+}
+.main > .main-content > .left-sidebar .fas {
+  color: var(--primary-blue);
+}
+.main > .main-content > .left-sidebar .tab {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: inherit;
+  height: 2rem;
+  padding: calc(var(--header-padding) * 0.3) var(--header-padding);
+}
+.main > .main-content > .left-sidebar .tab > span {
+  display: inline-block;
+  width: 100%;
+  font-size: calc(var(--_large-font-size) * 0.65);
+  font-weight: 400;
+}
+.main > .main-content > .left-sidebar .tab > button {
+  background: var(--primary-white);
+  border: none;
+  font-family: inherit;
+  transition: all 0.25s;
+}
+.main > .main-content > .left-sidebar .tab > button:is(:hover, :focus-within, :focus, :active) {
+  background: var(--primary-blue);
+  color: var(--secondary-white);
+}
+.main > .main-content > .right-sidebar {
+  --_margin-size: 1.6rem;
+  --_large-font-size: 1.6rem;
+  width: 15%;
+  height: 80%;
+  position: relative;
+  margin-left: var(--_margin-size);
+  display: flex;
+  flex-direction: column;
+  row-gap: 2%;
+  position: absolute;
+  right: 0;
+  top: 0;
+  display: grid;
+}
+.main > .main-content > .right-sidebar > button {
+  font-size: calc(var(--_large-font-size) * 0.65);
+  font-weight: 400;
+  font-family: inherit;
+  text-transform: capitalize;
+  background: var(--main-white);
+  border: none;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  transition: all 0.25s;
+}
+.main > .main-content > .right-sidebar > button:is(:hover, :focus-within, :focus, :active) {
+  background: var(--primary-blue);
+  color: var(--secondary-white);
+}
+.main > .main-content > .right-sidebar > button > i {
+  font-size: x-large;
+  font-weight: 600;
+  color: var(--primary-blue);
+}
+.main > .main-content > .content > h1 {
+  font-size: 8em;
+  text-transform: uppercase;
+}
+
+.modal {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  justify-content: center;
+  align-items: center;
+  display: none;
+}
+.modal > .container {
+  width: calc(var(--header-height) * 5.5);
+  aspect-ratio: 16/18;
+  border-radius: calc(var(--header-height) * 6 * 0.03125 * 0.5);
+  padding: calc(var(--header-padding) * 0.5);
+  background-color: var(--main-white);
+  box-shadow: 5px 5px 8px var(--shadow-color);
+}
+.modal > .container > [data-close] {
+  background: none;
+  outline: none;
+  border: none;
+  font-size: 2rem;
+  color: var(--thick-shadow-color);
+  font-weight: 400;
+  float: right;
+  transition: all 0.25s;
+  padding: 0;
+}
+.modal > .container > [data-close]:hover {
+  cursor: pointer;
+  color: rgb(255, 54, 94);
+  font-weight: 500;
+}
+.modal > .container > h3 {
+  color: var(--primary-blue);
+  text-transform: capitalize;
+  text-decoration: underline;
+  text-decoration-color: color-mix(in oklch, var(--tertiary-blue), var(--primary-blue) 60%);
+  text-underline-offset: 0.75rem;
+  text-decoration-thickness: 3px;
+  text-align: center;
+}
+.modal > .container > form {
+  margin-block: 0;
+}
+.modal > .container > form > fieldset {
+  height: calc(var(--header-height) * 0.5);
+  border-color: var(--tertiary-blue);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: fit-content;
+}
+.modal > .container > form > fieldset:last-of-type {
+  flex-direction: column;
+  justify-content: start;
+  height: calc(var(--svg-width) * 1.7);
+  gap: calc(var(--header-padding) * 0.75);
+}
+.modal > .container > form > fieldset:last-of-type > div {
+  width: 80%;
+  display: grid;
+  grid-template-columns: 10rem 1fr;
+  column-gap: 0.5rem;
+}
+.modal > .container > form > fieldset:last-of-type > div input {
+  font: inherit;
+  padding: calc(var(--header-padding) * 0.5) var(--header-padding);
+  border: none;
+  border-bottom: 1px solid var(--shadow-color);
+  color: var(--shadow-color);
+}
+.modal > .container > form > fieldset:last-of-type > div input:is(:active, :focus-within, :focus) {
+  border-bottom-color: var(--tertiary-blue);
+  color: var(--primary-blue);
+  outline: none;
+}
+.modal > .container > form > fieldset:last-of-type > div input:is(:active, :focus-within, :focus):placeholder-shown {
+  color: var(--shadow-color);
+}
+.modal > .container > form > fieldset:last-of-type > div input:not(:placeholder-shown) {
+  color: var(--primary-blue);
+}
+.modal > .container > form > fieldset:last-of-type > section {
+  width: 100%;
+  height: 55%;
+  display: grid;
+  grid-template-columns: 60% 1fr;
+  grid-template-rows: 1fr;
+  column-gap: var(--header-padding);
+}
+.modal > .container > form > fieldset:last-of-type > section fieldset:first-of-type {
+  display: flex;
+  flex-direction: column;
+  border-color: var(--tertiary-blue);
+  overflow-y: auto;
+}
+.modal > .container > form > fieldset:last-of-type > section fieldset:first-of-type > table {
+  max-width: 100%;
+  text-align: center;
+  border-collapse: collapse;
+  letter-spacing: 1px;
+  font-size: 0.8em;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+.modal > .container > form > fieldset:last-of-type > section fieldset:first-of-type > table thead {
+  color: var(--secondary-white);
+  background: var(--secondary-blue);
+}
+.modal > .container > form > fieldset:last-of-type > section fieldset:first-of-type > table th {
+  font-size: medium;
+  text-transform: capitalize;
+  height: var(--_large-font-size);
+}
+.modal > .container > form > fieldset:last-of-type > section fieldset:first-of-type > table th,
+.modal > .container > form > fieldset:last-of-type > section fieldset:first-of-type > table td {
+  border: 2px solid var(--tertiary-blue);
+  padding: 5px 10px;
+  height: 2em;
+}
+.modal > .container > form > fieldset:last-of-type > section fieldset:first-of-type > table tr:nth-of-type(2n) {
+  background-color: var(--secondary-green);
+  color: var(--secondary-white);
+}
+.modal > .container > form > fieldset:last-of-type > section fieldset:first-of-type > table td {
+  max-width: 25ch;
+  padding-inline: calc(var(--header-padding) * 0.5);
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.modal > .container > form > fieldset:last-of-type > section fieldset:first-of-type span.icons {
+  display: flex;
+  justify-content: end;
+  margin-bottom: calc(var(--header-padding) * 0.75);
+}
+.modal > .container > form > fieldset:last-of-type > section fieldset:first-of-type span.icons img {
+  margin: calc(var(--header-padding) * 0.5) !important;
+}
+.modal > .container > form > fieldset:last-of-type > section fieldset:first-of-type span.icons img:is(:hover, :focus, :focus-within) {
+  cursor: pointer;
+  scale: 1.25;
+}
+.modal > .container > form > fieldset:last-of-type > section fieldset:last-of-type {
+  border-color: var(--tertiary-blue);
+  display: grid;
+  grid-template-columns: max-content 0.2fr;
+}
+.modal > .container > form > fieldset:last-of-type > section fieldset:last-of-type > .options {
+  display: grid;
+  pointer-events: none;
+}
+.modal > .container > form > fieldset:last-of-type > section fieldset:last-of-type > .range {
+  height: inherit !important;
+  width: 25px;
+}
+.modal > .container > form > fieldset:last-of-type > section fieldset:last-of-type > .range [type=range] {
+  height: 235px;
+  appearance: slider-vertical;
+  -webkit-appearance: slider-vertical;
+}
+.modal > .container > form > .btn {
+  margin-top: 0.5em;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.modal > .container > form > .btn button {
+  background: var(--secondary-white);
+  color: var(--secondary-blue);
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  width: 3rem;
+  padding: calc(var(--header-padding) * 0.5);
+}
+.modal > .container > form > .btn button:is(:hover, :focus-within, :focus, :active) {
+  background: var(--primary-blue);
+  color: var(--secondary-white);
+}
+.modal > .container > form > .btn [type=submit] {
+  border: 2px solid var(--primary-blue);
+}
+
+.open {
+  display: flex;
+}
+.open body:not(.modal) {
+  pointer-events: none;
+}
+
+.corrier {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: calc(var(--header-padding) * 3);
+}
+.corrier > div {
+  width: 30%;
+  aspect-ratio: 2/3;
+  max-height: 80%;
+  min-width: 350px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--secondary-white);
+  box-shadow: 2px 2px 10px var(--thick-shadow-color);
+  transition: all 0.5s ease;
+}
+.corrier > div:hover {
+  scale: 1.035;
+  --thick-shadow-color: #666;
+}
+.corrier > div > h2 {
+  color: var(--primary-blue);
+  text-transform: capitalize;
+  text-decoration: underline;
+  text-decoration-color: color-mix(in oklch, var(--tertiary-blue), var(--primary-blue) 60%);
+  text-underline-offset: 0.75rem;
+  text-decoration-thickness: 3px;
+}
+.corrier > div > section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: inherit;
+  height: 2rem;
+  padding: calc(var(--header-padding) * 0.3) var(--header-padding);
+  width: 85%;
+  height: fit-content;
+  display: grid;
+  justify-content: center;
+  row-gap: calc(var(--header-padding) * 0.5);
+}
+.corrier > div > section > span {
+  display: inline-block;
+  width: 100%;
+  font-size: calc(var(--_large-font-size) * 0.65);
+  font-weight: 400;
+}
+.corrier > div > section > button {
+  background: var(--primary-white);
+  border: none;
+  font-family: inherit;
+  transition: all 0.25s;
+}
+.corrier > div > section > button:is(:hover, :focus-within, :focus, :active) {
+  background: var(--primary-blue);
+  color: var(--secondary-white);
+}
+.corrier > div > section:first-of-type {
+  padding-bottom: var(--header-padding);
+  border-bottom: 2px solid var(--shadow-color);
+}
+.corrier > div > section:last-of-type {
+  padding-bottom: calc(var(--header-padding) * 3);
+}
+.corrier > div > section > button {
+  display: block;
+  font-size: large;
+  padding: var(--header-padding);
+}
+.corrier > div > section > h4 {
+  font-weight: 500;
+  color: var(--primary-blue);
+  text-transform: capitalize;
+  text-decoration: underline;
+  text-decoration-color: color-mix(in oklch, var(--tertiary-blue), var(--primary-blue) 60%);
+  text-underline-offset: 0.75rem;
+  text-decoration-thickness: 3px;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.5rem;
+}
+.corrier > div > section > span {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.corrier > div > section > span strong {
+  font-weight: 400;
+  text-transform: capitalize;
+}
+.corrier > div .btn {
+  color: var(--main-white);
+  font-family: inherit;
+  font-size: large;
+  background-color: var(--secondary-blue);
+  border: none;
+  outline: none;
+  padding: var(--header-padding);
+  border-radius: 0.25rem;
+}
+.corrier > div .btn:is(:focus-within, :focus, :active) {
+  background-color: var(--tertiary-blue);
+  outline: 2px solid var(--primary-blue);
+}
+.corrier > div .btn:hover {
+  background-color: var(--tertiary-blue);
+}
+.corrier .entrant {
+  box-shadow: -2px 2px 15px var(--shadow-color);
+}
+
+@media screen and (max-width: 760px) {
+  .corrier {
+    display: grid;
+    padding-bottom: var(--header-padding);
+    row-gap: calc(var(--header-padding) * 2);
+  }
+  .corrier > div {
+    rotate: 0deg !important;
+    max-height: none;
+  }
+}
+.hidden {
+  display: block;
+  appearance: none;
+  width: 0;
+  height: 0;
+}
+
+/*# sourceMappingURL=style.css.map */
