@@ -16,7 +16,7 @@ require_once __DIR__ . '/include/config.php';
 require_once __DIR__ . '/controllers/home_controller.php';
 // gestion des routes
 $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
-$uri = str_replace("/IplansV", "", $uri);
+$uri = str_replace("/IplansV2", "", $uri);
 $uri = str_replace(".php", "", $uri);
 $uri = str_replace("//", "/", $uri);
 if ('/accueil' == $uri || empty($uri) || $uri == "/") {
