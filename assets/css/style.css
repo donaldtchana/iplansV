@@ -334,14 +334,20 @@ svg > g {
   display: none;
 }
 .modal > .container {
-  width: calc(var(--header-height) * 5.5);
+  width: calc(var(--header-height) * 4.5);
   aspect-ratio: 16/18;
   border-radius: calc(var(--header-height) * 6 * 0.03125 * 0.5);
   padding: calc(var(--header-padding) * 0.5);
+  position: relative;
   background-color: var(--main-white);
   box-shadow: 5px 5px 8px var(--shadow-color);
 }
-.modal > .container > [data-close] {
+.modal > .container#modal2-container {
+  width: min-content;
+  max-width: 80%;
+  aspect-ratio: 16/9;
+}
+.modal > .container > :is([data-close], [data-close2]) {
   background: none;
   outline: none;
   border: none;
@@ -352,7 +358,7 @@ svg > g {
   transition: all 0.25s;
   padding: 0;
 }
-.modal > .container > [data-close]:hover {
+.modal > .container > :is([data-close], [data-close2]):hover {
   cursor: pointer;
   color: rgb(255, 54, 94);
   font-weight: 500;
@@ -380,7 +386,6 @@ svg > g {
 .modal > .container > form > fieldset:last-of-type {
   flex-direction: column;
   justify-content: start;
-  height: calc(var(--svg-width) * 1.7);
   gap: calc(var(--header-padding) * 0.75);
 }
 .modal > .container > form > fieldset:last-of-type > div {
@@ -409,7 +414,6 @@ svg > g {
 }
 .modal > .container > form > fieldset:last-of-type > section {
   width: 100%;
-  height: 55%;
   display: grid;
   grid-template-columns: 60% 1fr;
   grid-template-rows: 1fr;
@@ -474,6 +478,7 @@ svg > g {
 }
 .modal > .container > form > fieldset:last-of-type > section fieldset:last-of-type > .options {
   display: grid;
+  grid-template-rows: repeat(5, 2rem);
   pointer-events: none;
 }
 .modal > .container > form > fieldset:last-of-type > section fieldset:last-of-type > .range {
@@ -481,7 +486,7 @@ svg > g {
   width: 25px;
 }
 .modal > .container > form > fieldset:last-of-type > section fieldset:last-of-type > .range [type=range] {
-  height: 235px;
+  height: 150px;
   appearance: slider-vertical;
   -webkit-appearance: slider-vertical;
 }
@@ -506,6 +511,101 @@ svg > g {
 }
 .modal > .container > form > .btn [type=submit] {
   border: 2px solid var(--primary-blue);
+}
+.modal > .container > .heading {
+  background-color: var(--shadow-color);
+  height: min-content;
+  padding: calc(var(--header-padding) * 0.35);
+}
+.modal > .container > .heading > form {
+  display: grid;
+  margin: 0 !important;
+  grid-template-columns: repeat(2, 1fr) 1.5fr repeat(2, 1fr);
+}
+.modal > .container > .heading > form label {
+  display: inline-block;
+}
+.modal > .container > .heading > form fieldset:nth-of-type(2) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.modal > .container > .heading > form fieldset:nth-of-type(3) {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+.modal > .container > .heading > form fieldset:nth-of-type(4) {
+  display: grid;
+}
+.modal > .container > .heading > form fieldset:last-of-type {
+  display: grid;
+}
+.modal > .container > .table {
+  margin-top: var(--header-padding);
+  width: 100%;
+  border-color: red;
+  height: max-content;
+  overflow: hidden auto;
+}
+.modal > .container > .table > table {
+  max-width: 100%;
+  text-align: center;
+  border-collapse: collapse;
+  letter-spacing: 1px;
+  font-size: 0.8em;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+.modal > .container > .table > table thead {
+  color: var(--secondary-white);
+  background: var(--secondary-blue);
+}
+.modal > .container > .table > table th {
+  font-size: medium;
+  text-transform: capitalize;
+  height: var(--_large-font-size);
+  white-space: nowrap;
+}
+.modal > .container > .table > table th,
+.modal > .container > .table > table td {
+  border: 2px solid var(--tertiary-blue);
+  padding: 5px 10px;
+  height: 2em;
+}
+.modal > .container > .table > table tr:nth-of-type(2n) {
+  background-color: color-mix(in oklab, black 60%, white);
+  color: var(--secondary-white);
+}
+.modal > .container > .table > table td {
+  max-width: 25ch;
+  padding-inline: calc(var(--header-padding) * 0.5);
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.modal > .container > .footing {
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  justify-content: space-between;
+  width: 95%;
+}
+.modal > .container > .footing > .btns > button {
+  color: var(--main-white);
+  font-family: inherit;
+  font-size: large;
+  background-color: var(--secondary-blue);
+  border: none;
+  outline: none;
+  padding: calc(var(--header-padding) * 0.5);
+  border-radius: 0.25rem;
+  margin-bottom: calc(var(--header-padding) * 0.5);
+}
+.modal > .container > .footing > .btns > button:is(:focus-within, :focus, :active) {
+  background-color: var(--tertiary-blue);
+  outline: 2px solid var(--primary-blue);
+}
+.modal > .container > .footing > .btns > button:hover {
+  background-color: var(--tertiary-blue);
 }
 
 .open {
@@ -636,6 +736,11 @@ svg > g {
   .corrier > div {
     rotate: 0deg !important;
     max-height: none;
+  }
+  .modal > .container#modal2-container {
+    height: 90%;
+    aspect-ratio: 16/10 !important;
+    max-width: min-content;
   }
 }
 .hidden {

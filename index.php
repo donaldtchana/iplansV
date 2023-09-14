@@ -25,15 +25,9 @@ if ('/accueil' == $uri || empty($uri) || $uri == "/") {
 if ('/courrier' == $uri) {
     courrier();
 }
-if ('/spider' == $uri) {
-    indexindex();
-
-}
 if ('/login' == $uri) {
     loginlogin();
 }
-if ('/loggout' == $uri ) {
-    unset($_SESSION['login']);
-    echo "<script>window.open('".SITE_URL."/login','_self');</script>";
-    exit();
+if ('/spider' == $uri) {
+    spider();
 }

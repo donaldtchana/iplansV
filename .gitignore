@@ -1,8 +1,15 @@
-./assets/css/style.scss
-./assets/css/style.css.map
+./assets/css/*.scss
+./assets/css/*.css.map
 
 #Ignore all uploaded files
 uploads
 
 #Ignore all database files
 *.sql
+./.idea
+
+#Ignore all scss files
+*.scss
+
+#Ignore all css.map files
+*.css.map

@@ -7,4 +7,3 @@ function __add__(string $url, string $findPage, string $insert): void
         echo $insert;
     }
 }
-
